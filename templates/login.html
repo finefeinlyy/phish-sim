@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Login - 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'spin-slow': 'spin 3s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .animate-in {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .btn-gradient {
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-b from-neutral-950 to-neutral-900 text-white p-4">
+  <div class="relative w-full max-w-md">
+    <!-- Decorative elements -->
+    <div class="absolute -left-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-r from-amber-300/20 to-rose-300/20 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-emerald-300/20 to-cyan-300/20 blur-3xl"></div>
+
+    <!-- Card -->
+    <div class="animate-in relative border-0 rounded-xl overflow-hidden bg-black/40 backdrop-blur-xl shadow-2xl">
+      <!-- Header -->
+      <div class="p-6 text-center space-y-2">
+        <h2 class="text-3xl font-semibold tracking-tight text-white">Welcome back</h2>
+        <p class="text-neutral-400 text-sm">Sign in to your account to continue</p>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <form action="/submit" method="POST" class="space-y-4">
+          <!-- Email field -->
+          <div class="space-y-2">
+            <label for="email" class="block text-sm font-medium text-neutral-300">Email</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <input
+                id="email"
+                name="username"
+                type="email"
+                placeholder="you@example.com"
+                class="w-full px-4 py-3 pl-10 rounded-lg border border-neutral-800 bg-neutral-900/50 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-700"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password field -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm font-medium text-neutral-300">Password</label>
+              <a href="#" class="text-xs text-neutral-400 hover:text-white transition-colors">Forgot password?</a>
+            </div>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="16" r="1" />
+                  <rect x="3" y="10" width="18" height="12" rx="2" />
+                  <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                </svg>
+              </div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                class="w-full px-4 py-3 pl-10 rounded-lg border border-neutral-800 bg-neutral-900/50 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-neutral-700"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Remember me -->
+          <div class="flex items-center space-x-2">
+            <input 
+              type="checkbox" 
+              id="remember" 
+              class="h-4 w-4 rounded border-neutral-700 bg-neutral-900 text-amber-500 focus:ring-amber-500 focus:ring-offset-0"
+            />
+            <label for="remember" class="text-sm text-neutral-400">Remember me for 30 days</label>
+          </div>
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="relative w-full py-3 px-4 rounded-lg font-medium btn-gradient bg-gradient-to-r from-rose-500 to-amber-500 text-white hover:from-rose-600 hover:to-amber-600 transition-all duration-300 flex items-center justify-center"
+          >
+            <span>Sign in</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative flex items-center justify-center">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-neutral-800"></div>
+          </div>
+          <div class="relative bg-black/40 px-4">
+            <span class="text-xs text-neutral-500">or continue with</span>
+          </div>
+        </div>
+
+        <!-- Social login -->
+        <div class="grid grid-cols-2 gap-3">
+          <a
+            href="#"
+            class="flex items-center justify-center py-2.5 px-4 rounded-lg border border-neutral-800 bg-neutral-900/50 text-neutral-300 hover:bg-neutral-800 hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+            GitHub
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center py-2.5 px-4 rounded-lg border border-neutral-800 bg-neutral-900/50 text-neutral-300 hover:bg-neutral-800 hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
+              <path d="M10 2c1 .5 2 2 2 5" />
+            </svg>
+            Apple
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-6 py-4 border-t border-neutral-800 text-center">
+        <p class="text-sm text-neutral-500">
+          Don't have an account?
+          <a href="#" class="text-neutral-300 hover:text-white transition-colors">Create account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();  // ยังกั้น default ไว้ ให้เรา handle เอง
+    const form = this;
+    const button = form.querySelector('button[type="submit"]');
+    const originalContent = button.innerHTML;
+
+    // เปลี่ยนเป็น loading state
+    button.innerHTML = `
+      <div class="flex items-center justify-center">
+        <div class="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+        <span class="ml-2">Signing in...</span>
+      </div>
+    `;
+
+    // รอ animation หรือ simulated delay แล้วส่ง form จริงๆ
+    setTimeout(() => {
+      form.submit();  // ส่ง form ไป /submit
+    }, 1000);
+  });
+</script>
+
+</body>
+</html>

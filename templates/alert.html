@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Awareness - Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 2s infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .animate-in {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .warning-icon {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-b from-neutral-950 to-neutral-900 text-white p-4">
+  <div class="relative w-full max-w-md">
+    <!-- Decorative elements -->
+    <div class="absolute -left-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-r from-amber-300/20 to-rose-300/20 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-r from-emerald-300/20 to-cyan-300/20 blur-3xl"></div>
+
+    <!-- Card -->
+    <div class="animate-in relative border-0 rounded-xl overflow-hidden bg-black/40 backdrop-blur-xl shadow-2xl">
+      <!-- Header -->
+      <div class="p-6 text-center space-y-4">
+        <div class="flex justify-center">
+          <div class="warning-icon h-20 w-20 rounded-full bg-red-500/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+              <path d="M12 9v4" />
+              <path d="M12 17h.01" />
+            </svg>
+          </div>
+        </div>
+        <h2 class="text-3xl font-semibold tracking-tight text-white">
+          <span class="text-red-500">⚠️</span> This was a phishing simulation!
+        </h2>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 space-y-6">
+        <div class="space-y-4 text-center">
+          <p class="text-neutral-300">
+            You have been safely redirected to this awareness message.
+          </p>
+          
+          <div class="p-4 bg-neutral-800/50 rounded-lg">
+            <h3 class="text-lg font-medium text-amber-400 mb-2">Why is this important?</h3>
+            <p class="text-neutral-400 text-sm">
+              Phishing attacks attempt to steal your personal information by impersonating trusted websites. Always verify the URL and security of websites before entering sensitive information.
+            </p>
+          </div>
+          
+          <div class="space-y-4 mt-6">
+            <h3 class="text-lg font-medium text-white">How to stay safe online:</h3>
+            <ul class="space-y-2 text-sm text-neutral-300 text-left">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Check the URL before entering credentials</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Look for the padlock icon in your browser</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Never share sensitive information via email</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Use two-factor authentication when available</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <a
+          href="#"
+          class="block w-full py-3 px-4 rounded-lg font-medium bg-gradient-to-r from-rose-500 to-amber-500 text-white hover:from-rose-600 hover:to-amber-600 transition-all duration-300 text-center"
+        >
+          I Understand
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-6 py-4 border-t border-neutral-800 text-center">
+        <p class="text-sm text-neutral-500">
+          This was a security awareness test conducted by your organization.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
