@@ -179,12 +179,11 @@
 
   <script>
   document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();  // ยังกั้น default ไว้ ให้เรา handle เอง
+    e.preventDefault(); 
     const form = this;
     const button = form.querySelector('button[type="submit"]');
     const originalContent = button.innerHTML;
 
-    // เปลี่ยนเป็น loading state
     button.innerHTML = `
       <div class="flex items-center justify-center">
         <div class="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
@@ -192,9 +191,8 @@
       </div>
     `;
 
-    // รอ animation หรือ simulated delay แล้วส่ง form จริงๆ
     setTimeout(() => {
-      form.submit();  // ส่ง form ไป /submit
+      form.submit();  
     }, 1000);
   });
 </script>
