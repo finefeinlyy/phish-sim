@@ -134,14 +134,12 @@
   </div>
 
   <script>
-    // OTP input formatting
     const otpInput = document.getElementById('otp');
     otpInput.addEventListener('input', function() {
       this.value = this.value.replace(/[^0-9]/g, '');
     });
 
-    // Timer countdown
-    let timeLeft = 120; // 2 minutes in seconds
+    let timeLeft = 120; 
     const timerElement = document.getElementById('timer');
     
     function updateTimer() {
@@ -163,12 +161,11 @@
     const timerInterval = setInterval(updateTimer, 1000);
     
     document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();  // หยุด default submit ไว้ก่อน
+    e.preventDefault(); 
     const form   = this;
     const button = form.querySelector('button[type="submit"]');
     const originalContent = button.innerHTML;
 
-    // แสดง loading animation
     button.innerHTML = `
       <div class="flex items-center justify-center">
         <div class="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
@@ -176,7 +173,6 @@
       </div>
     `;
 
-    // รอ 1.5 วินาที แล้วส่ง form ไป /verify-otp
     setTimeout(() => {
       form.submit();
     }, 1500);
