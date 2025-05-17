@@ -14,7 +14,7 @@ Perfect for demo, awareness training, or UI prototyping.
 
 ### 1. Clone this repo
 ```bash
-git clone https://github.com/yourusername/phish-simulator.git
+git clone https://github.com/yourusername/phish-sim.git
 cd phish-simulator
 ```
 ### 2. Set up Python environment
